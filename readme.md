@@ -12,7 +12,7 @@ To start localhost<br />
 > add your db in index.js
 ```
 node app.js or nodemon app.js // terminal 1
-node app.js or nodemon app.js // terminal 2
+node index.js or nodemon index.js // terminal 2
 ```
 ## Localhost running
 ```
