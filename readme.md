@@ -8,7 +8,8 @@ Modules used : <br />
 npm install
 ```
 ## Usage
-To start localhost
+To start localhost<br />
+> add your db in index.js
 ```
 node app.js or nodemon app.js // terminal 1
 node app.js or nodemon app.js // terminal 2
