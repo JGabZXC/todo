@@ -1,0 +1,68 @@
+<section class="wrapper todo-con">
+    <div class="todo-items">
+        <% if(locals.current) {%>
+            <% if(todos.result.length > 0) { %>
+                <ul>
+                    <% todos.result.forEach(list => { %>
+                        <li class="todo-list">
+                            <p><%= list.description %></p>
+                            <div class="list-action">
+                                <form action="/delete/todo/<%= list.ts_id %>" method="post">
+                                    <input hidden type="submit" name="todoID" value="delete" id="<%= list.ts_id %>">
+                                    <label for="<%= list.ts_id %>" class="danger"><i class="bi bi-trash3"></i></label>
+                                </form>
+                                <form action="/edit/todo/<%= list.ts_id %>" method="get">
+                                    <input hidden type="submit" name="todoID" value="edit" id="<%= list.ts_id + "e" %>">
+                                    <label for="<%= list.ts_id + "e" %>" class="warning"><i class="bi bi-pencil-fill"></i></label>
+                                </form>
+                            </div>
+                        </li>
+                    <% }); %>
+                </ul>
+                <div class="pagination">
+                    <% if (currentPage > 1) { %>
+                      <a href="/?page=<%= currentPage - 1 %>">Previous</a>
+                    <% } %>
+                    <% for (let i = 1; i <= totalPages; i++) { %>
+                      <a href="/?page=<%= i %>" class="<%= i === currentPage ? 'active' : '' %>"><%= i %></a>
+                    <% } %>
+                    <% if (currentPage < totalPages) { %>
+                      <a href="/?page=<%= currentPage + 1 %>">Next</a>
+                    <% } %>
+                </div>
+                <form action="/create/todo" method="post">
+                    <div class="action-todo">
+                        <input hidden type="text" name="todoID" value="<%= current.id %>">
+                        <% if(locals.todmessage) { %>
+                            <input class="new-todo-btn" type="text" name="newTODO" value="" placeholder="<%= todmessage %>">
+                            <input hidden type="submit" value="Create" id="createX">
+                            <label for="createX" class="add"><i class="bi bi-plus-lg"></i></label>
+                        <% } else { %>
+                            <input class="new-todo-btn" type="text" name="newTODO" value="" placeholder="Add to do">
+                            <input hidden type="submit" value="Create" id="createX">
+                            <label for="createX" class="add"><i class="bi bi-plus-lg"></i></label>
+                        <% } %>
+                    </div>
+                </form>
+            <% } else { %>
+                <p class="message">Create to do</p>
+                <form action="/create/todo" method="post">
+                    <div class="action-todo">
+                        <input hidden type="text" name="todoID" value="<%= current.id %>">
+                        <% if(locals.todmessage) { %>
+                            <input class="new-todo-btn" type="text" name="newTODO" value="" placeholder="<%= todmessage %>">
+                            <input hidden type="submit" value="Create" id="cc">
+                            <label for="cc" class="add"><i class="bi bi-plus-lg"></i></label>
+                        <% } else { %>
+                            <input class="new-todo-btn" type="text" name="newTODO" value="" placeholder="Add to do">
+                            <input hidden type="submit" value="Create" id="cc">
+                            <label for="cc" class="add"><i class="bi bi-plus-lg"></i></label>
+                        <% } %>
+                    </div>
+                </form>
+            <% } %>
+        <% } else {%>
+            <p class="message">Please create name or select a list!</p>
+        <% } %>
+    </div>
+</section>

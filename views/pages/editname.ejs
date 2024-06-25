@@ -1,0 +1,18 @@
+<section class="wrapper todo-con">
+    <div class="todo-items">
+        <form action="/update/name/<%= selected.id %>" method="post">
+            <div class="todo-list">
+                <p><%= selected.id %></p>
+                <% if(locals.namemess) { %>
+                    <input class="edname" type="text" name="name" value="" placeholder="<%= namemess %>">
+                    <input hidden type="submit" value="Submit" id="ccedit">
+                    <label for="ccedit" class="add"><i class="bi bi-pencil-fill"></i></label>
+                <% } else { %>
+                    <input class="edname" type="text" name="name" value="<%= selected.name %>">
+                    <input hidden type="submit" value="Submit" id="ccedit">
+                    <label for="ccedit" class="add"><i class="bi bi-pencil-fill"></i></label>
+                <% } %>
+            </div>
+        </form>
+    </div>
+</section>

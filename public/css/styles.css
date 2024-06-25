@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.15rem;
+}
+input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+    font-family: "Open Sans", sans-serif;
+    color: #1f1f33;
+}
+
+input:focus {
+    outline: none;
+}
+
+
+body {
+    background-color: #ffffff;
+    height: 100vh;
+    color: #041e49;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #1f1f33;
+}
+
+.message {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.wrapper {
+    padding: 20px;
+}
+
+.header {
+    background-color: #f0f4f9;
+    width: 20%;
+}
+
+.name-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.name-container > div:nth-child(1) {
+    max-width: 80%;
+}
+
+.todo-con {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.todo-items {
+    padding: 20px;
+}
+
+.todo-list {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f0f4f9;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.list-action {
+    display: flex;
+    gap: 20px;
+}
+
+.action-todo {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.new-todo-btn {
+    width: 60%;
+}
+
+.create-name-con {
+    display: flex;
+    gap: 10px;
+}
+
+.create-name-btn {
+    width: 100%;
+}
+
+label {
+    cursor: pointer;
+}
+
+.add i {
+    color: green;
+}
+
+.danger i {
+    color: red;
+}
+
+.warning i {
+    color: rgb(142, 142, 0);
+}
+
+.edname {
+    width: 80%;
+}
+
+
+
+
+
+/*       HEADER        */
+header {
+    display: none;
+    position: absolute;
+    background-color: #f0f4f9;
+    width: 40%;
+    height: 100%;
+}
+
+.menu {
+    width: 100%;
+    padding-top: 30px;
+}
+
+.navbar {
+    padding: 20px;
+}
+
+.hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.bars {
+    display: block;
+    height: 4px;
+    width: 30px;
+    margin-top: 3px;
+    background-color: black;
+}
+
+.hamburger.active .bars:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bars:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bars:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+header.active {
+    display: block;
+    left: 0;
+}
+
+@media (width <= 900px) {
+    header {
+        width: 100%;
+    }
+
+    .todo-con {
+        width: 100%;
+    }
+}

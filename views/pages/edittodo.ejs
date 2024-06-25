@@ -1,0 +1,18 @@
+<section class="wrapper todo-con">
+    <div class="todo-items">
+        <form action="/update/todo/<%= selTSID %>" method="post">
+            <div class="todo-list">
+                <p><%= selTSID %></p>
+                <% if(locals.editMess) { %>
+                    <input class="edname" type="text" name="newDescription" value="" placeholder="<%= editMess %>">
+                    <input hidden type="submit" value="Submit" id="cctodo">
+                    <label for="cctodo" class="add"><i class="bi bi-pencil-fill"></i></label>
+                <% } else { %>
+                    <input class="edname" type="text" name="newDescription" value="<%= selDESC %>">
+                    <input hidden type="submit" value="Submit" id="cctodo">
+                    <label for="cctodo" class="add"><i class="bi bi-pencil-fill"></i></label>
+                <% } %>
+            </div>
+        </form>
+    </div>
+</section>

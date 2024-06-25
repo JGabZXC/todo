@@ -1,0 +1,62 @@
+<div class="hamburger">
+    <span class="bars"></span>
+    <span class="bars"></span>
+    <span class="bars"></span>
+</div>
+<header>
+    <div class="navbar">
+        <div class="menu">
+            <% if(locals.message) { %>
+                <form action="/add/name" method="post">
+                    <div class="create-name-con">
+                        <% if(locals.messageCreate) { %>
+                            <input class="create-name-btn" type="text" name="name" value="" placeholder="<%= messageCreate %>">
+                            <input hidden type="submit" value="Submit" id="create">
+                            <label for="create" class="add"><i class="bi bi-plus-lg"></i></label>
+                        <% } else { %>
+                            <input class="create-name-btn" type="text" name="name" value="" placeholder="Create name">
+                            <input hidden type="submit" value="Submit" id="create">
+                            <label for="create" class="add"><i class="bi bi-plus-lg"></i></label>
+                        <% } %>
+                    </div>
+                </form>
+                <p><%= message %></p>
+            <% }  else {%>
+                <form action="/add/name" method="post">
+                    <div class="create-name-con">
+                        <% if(locals.messageCreate) { %>
+                            <input class="create-name-btn" type="text" name="name" value="" placeholder="<%= messageCreate %>">
+                            <input hidden type="submit" value="Submit" id="create">
+                            <label for="create" class="add"><i class="bi bi-plus-lg"></i></label>
+                        <% } else { %>
+                            <input class="create-name-btn" type="text" name="name" value="" placeholder="Create name">
+                            <input hidden type="submit" value="Submit" id="create">
+                            <label for="create" class="add"><i class="bi bi-plus-lg"></i></label>
+                        <% } %>
+                    </div>
+                </form>
+                <% if(locals.current) {%>
+                    <p>Current name: <%= current.name %></p>
+                <% } else {%>
+                    <p>Current name: none</p>
+                <% } %>
+                <form action="/name" method="post">
+                <% let num = 1 %>
+                <% names.forEach(name => { %>
+                    <div class="name-container">
+                        <div>
+                            <input hidden type="submit" name="userID" value="<%= name.id %>" id="<%= name.id %>">
+                            <label for="<%= name.id %>"><%= num %>. <%= name.name %></label>
+                        </div>
+                        <div class="action">
+                            <a href="/delete/<%= name.id %>" class="danger"><i class="bi bi-trash3"></i></a>
+                            <a href="/edit/<%= name.id %>" class="warning"><i class="bi bi-pencil-fill"></i></a>
+                        </div>
+                    </div>
+                    <% num++ %>
+                <% }) %>
+            </form>
+            <% } %>
+        </div>
+    </div>
+</header>
