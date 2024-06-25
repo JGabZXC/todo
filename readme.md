@@ -1,4 +1,4 @@
-#About
+## About
 Full Stack To Do App with different list names and to do <br />
 Built using NodeJS, Express, PostgreSQL <br />
 Modules used : <br />
