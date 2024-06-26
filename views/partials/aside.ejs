@@ -36,9 +36,9 @@
                     </div>
                 </form>
                 <% if(locals.current) {%>
-                    <p>Current name: <%= current.name %></p>
+                    <p><span>Current name:</span> <%= current.name %></p>
                 <% } else {%>
-                    <p>Current name: none</p>
+                    <p><span>Current name:</span> none</p>
                 <% } %>
                 <form action="/name" method="post">
                 <% let num = 1 %>

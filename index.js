@@ -6,10 +6,10 @@ const app = new express();
 const port = 3100;
 
 const db = new pg.Client({
-    user: "",
-    host: "",
-    database: "",
-    password: "",
+    user: "postgres",
+    host: "localhost",
+    database: "todo_v2",
+    password: "pgAdminGab",
     port: 5432
 });
 
@@ -118,7 +118,6 @@ app.delete('/delete/todo/:id', async (req, res) => {
         const id = req.params.id;
 
         const checkTodo = await db.query('SELECT * FROM todo_side WHERE ts_id = $1', [id]);
-        console.log(checkTodo.rows.length);
         if(checkTodo.rows.length > 0) {
             const chkTodoName = checkTodo.rows[0].description;
             const chkTodoID = checkTodo.rows[0].ts_id;

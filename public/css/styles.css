@@ -6,12 +6,17 @@
     font-family: "Open Sans", sans-serif;
     font-size: 1.15rem;
 }
+
+span {
+    font-weight: 900;
+}
+
 input {
     background-color: transparent;
     border: none;
     border-bottom: 2px solid black;
     font-family: "Open Sans", sans-serif;
-    color: #1f1f33;
+    color: #393E46;
 }
 
 input:focus {
@@ -22,7 +27,7 @@ input:focus {
 body {
     background-color: #ffffff;
     height: 100vh;
-    color: #041e49;
+    color: #393E46;
 }
 
 li {
@@ -31,7 +36,7 @@ li {
 
 a {
     text-decoration: none;
-    color: #1f1f33;
+    color: #393E46;
 }
 
 .message {
@@ -55,7 +60,10 @@ a {
 .name-container {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .name-container > div:nth-child(1) {
@@ -74,7 +82,7 @@ a {
 .todo-list {
     display: flex;
     justify-content: space-between;
-    background-color: #f0f4f9;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 20px;
     border-radius: 20px;
     margin-top: 10px;
@@ -117,11 +125,11 @@ label {
 }
 
 .danger i {
-    color: red;
+    color: #D2001A;
 }
 
 .warning i {
-    color: rgb(142, 142, 0);
+    color: #FFDE00;
 }
 
 .edname {
@@ -134,11 +142,13 @@ label {
 
 /*       HEADER        */
 header {
-    display: none;
     position: absolute;
-    background-color: #f0f4f9;
+    background-color: #ffffff;
+    left: -100%;
     width: 40%;
     height: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    transition: .5s;
 }
 
 .menu {
@@ -164,7 +174,8 @@ header {
     height: 4px;
     width: 30px;
     margin-top: 3px;
-    background-color: black;
+    background-color: #393E46;
+    transition: .5s;
 }
 
 .hamburger.active .bars:nth-child(2) {
@@ -172,16 +183,16 @@ header {
 }
 
 .hamburger.active .bars:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(6px) rotate(-43deg);
 }
 
 .hamburger.active .bars:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-8px) rotate(43deg);
 }
 
 header.active {
-    display: block;
     left: 0;
+    transition: .5s;
 }
 
 @media (width <= 900px) {

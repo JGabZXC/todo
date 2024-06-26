@@ -7,16 +7,6 @@ import pg from "pg";
 const app = new express();
 const port = 3000;
 
-const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "todo_v2",
-  password: "pgAdminGab",
-  port: 5432
-});
-
-db.connect();
-
 const APIURL = 'http://localhost:3100';
 let currentUserId = 1;
 let nameList = [];
@@ -45,7 +35,6 @@ app.get('/', async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const getTodo = await axios.get(`${APIURL}/test/get/todo/${currentUserId}?page=${page}`);
     const todo = getTodo.data;
-    console.log(todo.currentPage);
     if(nameList.length > 0) {
       res.render('main.ejs', {
         names: nameList,
@@ -188,9 +177,9 @@ app.get('/delete/:id', async (req, res) => {
 //                            To do Route                                  //
 app.post('/delete/todo/:id', async (req, res) => {
   const id = req.params.id;
+  console.log(id);
   try {
     const delTodo = await axios.delete(`${APIURL}/delete/todo/${id}`);
-    console.log(delTodo.data);
     res.redirect('/');
   } catch (err) {
     console.error(err.message);
@@ -269,7 +258,6 @@ app.post('/create/todo', async (req, res) => {
 
     if(newTod !== '') {
       const insert = await axios.post(`${APIURL}/create/todo`, [req.body]);
-      console.log(insert);
       res.redirect('/');
     } else {
       const page = parseInt(req.query.page) || 1;
@@ -288,6 +276,10 @@ app.post('/create/todo', async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
+});
+
+app.get('*', (req, res) => {
+  res.status(404).send('404');
 });
 
 app.listen(port, () => {
